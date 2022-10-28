@@ -1,0 +1,151 @@
+*{
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+html{
+    width: 100%;
+}
+body{
+    width: 100%;
+    height: 100%;
+}
+.content{
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height:500px;
+}
+.content .sider{
+    width: 400%;
+    height: 100%;
+    position: absolute;
+    transition: left 0.3s;
+}
+.content .sider li{
+    height:100%;
+    float: left;
+    position: relative;
+}
+.content .sider li h1{
+    position: absolute;
+    top:calc(50%);
+    left: calc(50%);
+    z-index: 5;
+    color: #fff;
+    cursor: pointer;
+    transform: scale(0.1);
+    opacity: 0;
+    transition: all 1s;
+    font-size: 50px;
+}
+.content .sider li p{
+    position: absolute;
+    top:calc(50% + 100px);
+    left: calc(50%);
+    transform: translateX(-50%) scale(0.1);
+    z-index: 5;
+    color: #fff;
+    cursor: pointer;
+    font-size: 40px;
+    opacity: 0;
+    transition: all 1s;
+}
+.content .sider li.active h1{
+    transform: scale(1);
+    opacity: 1;
+}
+.content .sider li.active p{
+    transform: translateX(-50%) scale(1);
+    opacity: 1;
+}
+.content .sider li a img{
+    width: 100%;
+    height: auto;
+}
+.siderlf,.siderrg{
+    position: absolute;
+    width:40px;
+    height: 60px;
+    z-index: 5;
+    top: 0;
+    bottom:0;
+    margin:auto 0;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.39);
+    transition: all 0.3s;
+    opacity: 0;
+    cursor: pointer;
+}
+.content:hover .siderlf,.content:hover .siderrg{
+    opacity:1;
+}
+.siderlf{
+    left: 20px;
+}
+.siderrg{
+    right: 20px;
+}
+.siderlf::before,
+.siderlf::after,
+.siderrg::before,
+.siderrg::after
+{   
+    position: absolute;
+    display: block;
+    content: "";
+    width: 30px;
+    height: 3px;
+    background: #fff;
+    border-radius: 5px;
+    
+}
+.siderlf::before,
+.siderlf::after{
+    transform-origin:0 0;
+}
+.siderrg::before,
+.siderrg::after{
+    transform-origin:100% 0;
+}
+
+.siderlf::after{
+    top: 30px;
+    left: 8px;
+    transform: rotateZ(-45deg);
+}
+.siderlf::before{
+    top: 28px;
+    left: 10px;
+    transform: rotateZ(45deg);
+}
+.siderrg::before{
+    top: 32px;
+    left: 6px;
+    transform: rotateZ(45deg);
+}
+.siderrg::after{
+    top: 30px;
+    left: 4px;
+    transform: rotateZ(-45deg);
+}
+.sideron{
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    bottom: 20px;
+    width: max-content;
+}
+.sideron span.active{
+    background: #fff;
+}
+.sideron span{
+    width: 15px;
+    height: 15px;
+    display:inline-block;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.387);
+    margin: 0 10px;
+}
